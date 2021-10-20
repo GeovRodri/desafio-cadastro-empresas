@@ -1,0 +1,26 @@
+img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover !important;
+    border-radius: 50%;
+}
+
+.add-item {
+    display: flex;
+    color: #ff0075;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-right: 8px;
+    gap: 0.7rem;
+
+    span {
+        color: #4e4e4e;
+        display: inline-block;
+        font-size: 0.9rem;
+        margin: 0 10px;
+    }
+
+    input {
+        width: 105px;
+    }
+}
