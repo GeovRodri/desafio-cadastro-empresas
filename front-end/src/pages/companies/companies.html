@@ -1,6 +1,14 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Empresas</h3>
+        <div class="row justify-content-between">
+            <div class="col">
+                <h3 class="card-title">Empresas</h3>
+            </div>
+
+            <div class="col text-end align-self-center">
+                <button class="btn btn-primary btn-sm" [routerLink]="['/create-company']">Cadastrar</button>
+            </div>
+        </div>
     </div>
 
     <div class="card-body">

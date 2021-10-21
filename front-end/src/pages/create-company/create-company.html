@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Nova Empresa</h3>
+    </div>
+
+    <div class="card-body">
+        <form [formGroup]="companyForm" (submit)="save()">
+            <div class="row">
+                <div class="col-6 col-sm-3 mb-3">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" class="form-control" formControlName="cnpj" id="cnpj" mask="CPF_CNPJ">
+                </div>
+                 <div class="col align-self-center mt-2 ps-0">
+                     <button class="btn btn-primary" (click)="findCnpj()" [disabled]="isLoadingFindCnpj">
+                         Buscar
+                         <span class="spinner-border spinner-border-sm ps-2" role="status" aria-hidden="true" *ngIf="isLoadingFindCnpj"></span>
+                     </button>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-6 mb-3">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" formControlName="nome" id="nome" readonly>
+                </div>
+
+                <div class="col-12 col-sm-6 mb-3">
+                    <label for="razao_social">Razão Social</label>
+                    <input type="text" class="form-control" formControlName="razao_social" id="razao_social" readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="atividade_primaria">Atividade Primaria</label>
+                    <input type="text" class="form-control" formControlName="atividade_primaria" id="atividade_primaria" readonly>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" class="form-control" formControlName="endereco" id="endereco" readonly>
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col text-end">
+                    <button class="btn btn-primary" type="submit" [disabled]="isSaving || !companyForm.valid">
+                        Salvar
+                        <span class="spinner-border spinner-border-sm ps-2" role="status" aria-hidden="true" *ngIf="isSaving"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
