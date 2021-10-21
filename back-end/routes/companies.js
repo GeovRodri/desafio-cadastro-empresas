@@ -32,6 +32,10 @@ router.post('/', validate(companyValidation, {}, {}), async (req, res, next) => 
     */
 
     const body = req.body;
+    const existCnpj = await Company.where('cnpj').equals(body.cnpj).exec();
+    if (existCnpj.length > 0) {
+        return res.status(400).send({error: 'company-already-exists'});
+    }
 
     const company = new Company(body);
     await company.save();
