@@ -7,6 +7,7 @@ const swaggerFile = require('./swagger_output.json')
 const mongoose = require('mongoose');
 
 const CompaniesRouter = require('./routes/companies');
+const CnpjRouter = require('./routes/cnpj');
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 mongoose.connect('mongodb+srv://admin:admin@cluster0.uybux.mongodb.net/desafio?retryWrites=true&w=majority');
 
 app.use('/companies', CompaniesRouter);
+app.use('/cnpj', CnpjRouter);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 app.use(function(err, req, res, next) {
