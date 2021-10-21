@@ -8,3 +8,15 @@
         position: relative;
     }
 }
+
+.hide {
+    display: none;
+    visibility: hidden;
+    width: 0 !important;
+    height: 0 !important;
+
+    #map {
+        width: 0 !important;
+        height: 0 !important;
+    }
+}

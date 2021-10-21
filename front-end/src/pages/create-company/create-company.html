@@ -46,7 +46,7 @@
 
             <div class="row">
                 <div class="col-12 mb-3">
-                    <div class="map-container">
+                    <div class="map-container" [ngClass]="{ 'hide': !map}">
                         <div class="map" id="map"></div>
                     </div>
                 </div>
