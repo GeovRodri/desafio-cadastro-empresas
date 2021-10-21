@@ -130,7 +130,10 @@ export class CreateCompanyPage {
             const geocoder = new google.maps.Geocoder();
             geocoder.geocode( { 'address': this.companyForm.value.endereco}, (results: any, status: any) => {
                 if (status == 'OK') {
-                    resolve(results[0].geometry.location);
+                    resolve({
+                        lat: results[0].geometry.location.lat(),
+                        lng: results[0].geometry.location.lng()
+                    });
                 } else {
                     reject('Geocode was not successful for the following reason: ' + status);
                 }
