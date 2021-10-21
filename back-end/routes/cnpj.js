@@ -20,17 +20,17 @@ router.get('/', async (req, res, next) => {
             Authorization: 'Bearer ade978619cc60ce2c1b30e35039727d0823c2a0c0b3cf38ac949ed7d87b5c3fe'
         }
     });
-
-    if (result.status !== 200 || result?.data?.status === 'ERROR') {
+    
+    if (result.status !== 200 || result.data.status === 'ERROR') {
         return res.sendStatus(500);
     }
 
     return res.send({
-        nome: result?.data?.nome,
+        nome: result.data.nome,
         cnpj: cnpj,
-        razao_social: result?.data?.fantasia,
-        endereco: `${result?.data?.logradouro}, ${result?.data?.numero} ${result?.data?.bairro} ${result?.data?.municipio} - ${result?.data?.uf}, ${result?.data?.cep}`,
-        atividade_primaria: result?.data?.atividade_principal?.[0].text
+        razao_social: result.data.fantasia,
+        endereco: `${result.data.logradouro}, ${result.data.numero} ${result.data.bairro} ${result.data.municipio} - ${result.data.uf}, ${result.data.cep}`,
+        atividade_primaria: result.data.atividade_principal[0].text
     });
 });
 

@@ -16,5 +16,5 @@
 * NodeJs: cd back-end && npm run start
 
 ## Links
-* Documentação da API:
-* Sistema: 
+* Documentação da API: https://us-central1-desafio-cadastro-empresa.cloudfunctions.net/api/docs/
+* Sistema: https://desafio-cadastro-empresa.web.app/
