@@ -45,6 +45,27 @@ export class ApiService {
                 }, (error) => {
                     reject(error);
                 });
+        });
+    }
+
+    getCompanies(page = 1): Promise<{count: number, pages: number, results: Array<any>}> {
+        return new Promise((resolve, reject) => {
+            const httpOptions = {
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json'
+                }),
+                params: {
+                    page
+                }
+            };
+
+            this.httpClient.get(`${environment.api}/companies`, httpOptions).pipe(take(1))
+                .subscribe((result: any) =>
+                {
+                    resolve(result);
+                }, (error) => {
+                    reject(error);
+                });
         })
     }
 }

@@ -7,8 +7,8 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 })
 export class PaginationComponent implements OnChanges {
     @Input() public totalPages: number = 0;
-    @Input() public currentPage = 0;
-    @Input() public count = 0;
+    @Input() public currentPage = 1;
+    @Input() public count = 1;
 
     @Output() public change: EventEmitter<number> = new EventEmitter<number>();
 
@@ -21,8 +21,8 @@ export class PaginationComponent implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes.totalPages) {
-            this.pagesAux = Array.from({length: this.totalPages}, (v, k) => k);
-            this.changePage(0);
+            this.pagesAux = Array.from({length: this.totalPages}, (v, k) => k + 1);
+            this.changePage(1);
         } else if (changes.actualPage) {
             this.changePage(this.currentPage);
         }

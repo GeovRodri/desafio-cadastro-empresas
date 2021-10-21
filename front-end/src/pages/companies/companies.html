@@ -12,31 +12,37 @@
     </div>
 
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">CNPJ</th>
+                                <th scope="col">Atividade Primaria</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let company of companies;">
+                                <th>{{company.nome}}</th>
+                                <td>{{company.cnpj | mask: 'CPF_CNPJ'}}</td>
+                                <td>{{company.atividade_primaria}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <pagination [totalPages]="this.totalPages"
+                            [currentPage]="currentPage"
+                            [count]="count"
+                            (change)="changePage($event)"
+                ></pagination>
+            </div>
         </div>
     </div>
 </div>

@@ -43,4 +43,20 @@ router.post('/', validate(companyValidation, {}, {}), async (req, res, next) => 
     return res.send(company);
 });
 
+router.get("/", async (req, res, next) => {
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 10;
+
+    const count = await Company.count().exec();
+    const results = await Company.find({}, null, {sort: {nome: 1}})
+        .skip(page > 0 ? ((page - 1) * limit) : 0)
+        .limit(limit).exec();
+
+    return res.json({
+        "count": count,
+        "pages": Math.ceil(count / limit),
+        "results": results
+    });
+});
+
 module.exports = router;

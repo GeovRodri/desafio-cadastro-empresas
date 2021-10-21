@@ -21,7 +21,7 @@ export class CreateCompanyPage {
         atividade_primaria: new FormControl('', [Validators.required]),
     });
 
-    constructor(public apiService: ApiService, public route: Router) {
+    constructor(private apiService: ApiService, private route: Router) {
     }
 
     findCnpj() {
