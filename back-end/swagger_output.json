@@ -1,0 +1,64 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/companies/": {
+      "post": {
+        "tags": [],
+        "description": "Endpoint para cadastrar empresa",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Nova empresa",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Nome Fantasia"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "25430578000109"
+                },
+                "razao_social": {
+                  "type": "string",
+                  "example": "Razao Social"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Rua 17"
+                },
+                "atividade_primaria": {
+                  "type": "string",
+                  "example": "Desenvolvedor"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {}
+}
